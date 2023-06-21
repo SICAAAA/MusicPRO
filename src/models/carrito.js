@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productoSchema = mongoose.Schema({
+const carritoSchema = mongoose.Schema({
     name:{
         type: String,
         required: true
@@ -13,14 +13,10 @@ const productoSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    stock:{
+    amount:{
         type: Number,
         required: true
-    },
-    inCart:{
-        type: Boolean,
-        default: false
     }
 });
 
-module.exports = mongoose.model('Producto',productoSchema);
+module.exports = mongoose.model('Carrito',carritoSchema);

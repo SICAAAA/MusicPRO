@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const productosRoutes = require('./routes/productos');
+const carritoRoutes = require('./routes/carrito');
 //const multer = require('multer');
 const cors = require('cors');
 const app = express();
@@ -11,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api',productosRoutes);
+app.use('/api',productosRoutes,carritoRoutes);
 app.use(express.static(__dirname + '/public'));
 
 
@@ -20,6 +21,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/',(req,res)=>{
     res.render('index')
 });
+
 
 /*
 
@@ -49,3 +51,5 @@ mongoose
 app.listen(port,()=>{
     console.log("Server on port ",port);
 })
+
+module.exports = app;

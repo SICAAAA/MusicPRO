@@ -10,7 +10,21 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:3000/api/carrito HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"guitarra",
+    "categoria":"Instrumento",
+    "price": 20000,
+    "amount": 1
+}
+
+###
 GET http://localhost:3000/api/productos HTTP/1.1
+
+###
+GET http://localhost:3000/api/carrito HTTP/1.1
 
 ###
 GET http://localhost:3000/api/productos/6478ebafa358992bae5cac50 HTTP/1.1

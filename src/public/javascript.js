@@ -1,39 +1,52 @@
 const url = 'http://localhost:3000/api/productos';
 
-//LISTAR ELEMENTOS
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // La respuesta de la API está en `data`
-    // Recorre los productos y crea las filas dinámicamente
-    const tbody = document.querySelector('#productos-table tbody');
+function fetchProducts() {
+  fetch('http://localhost:3000/api/productos')
+    .then(response => response.json())
+    .then(data => {
+      const productContainer = document.querySelector('.product-container');
+      productContainer.innerHTML = ''; // Limpiar el contenido existente
 
-    data.forEach(producto => {
-      const row = document.createElement('tr');
-      const nombreProd = document.createElement('td');
-      const categoriaProd = document.createElement('td');
-      const precioProd = document.createElement('td');
-      const stockProd = document.createElement('td');
+      data.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
 
-      nombreProd.textContent = producto.name;
-      categoriaProd.textContent = producto.categoria;
-      precioProd.textContent = producto.price;
-      stockProd.textContent = producto.stock;
+        const productName = document.createElement('h3');
+        productName.textContent = product.name;
+        productCard.appendChild(productName);
 
-      row.appendChild(nombreProd);
-      row.appendChild(categoriaProd);
-      row.appendChild(precioProd);
-      row.appendChild(stockProd);
+        const productCategory = document.createElement('p');
+        productCategory.textContent = 'Categoría: ' + product.category;
+        productCard.appendChild(productCategory);
 
-      tbody.appendChild(row);
-    });
-  })
-  .catch(error => {
-    console.error('Error al obtener los productos:', error);
-  });
+        const productPrice = document.createElement('p');
+        productPrice.textContent = 'Precio: $' + product.price;
+        productCard.appendChild(productPrice);
+
+        const productStock = document.createElement('p');
+        productStock.textContent = 'Stock: ' + product.stock;
+        productCard.appendChild(productStock);
+
+        const addToCartButton = document.createElement('button');
+        addToCartButton.textContent = 'Agregar al carrito';
+        addToCartButton.addEventListener('click', () => {
+          // Lógica para agregar el producto al carrito
+          console.log('Producto agregado al carrito:', product);
+        });
+        productCard.appendChild(addToCartButton);
+
+        productContainer.appendChild(productCard);
+      });
+    })
+    .catch(error => console.error('Error al obtener los productos:', error));
+}
+
+    
+fetchProducts();
 
 
 //AGREGAR PRODUCTOS
+/*
 const form = document.querySelector('#product-form');
 
 form.addEventListener('submit', event => {
@@ -59,4 +72,4 @@ form.addEventListener('submit', event => {
     .catch(error => {
       console.error('Error al agregar el producto:', error);
     });
-});
+});*/
