@@ -1,0 +1,28 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.letra {
+  text-align: center;
+}
+
+.line {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgb(60, 9, 9);
+}
+
+.parrafo {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 4%;
+}

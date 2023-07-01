@@ -1,0 +1,107 @@
+.cartItem {
+  height: 80px;
+  background-color: #3a3a3a;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-radius: 20px;
+  
+
+  img {
+    height: 65px;
+    border-radius: 15px;
+  }
+
+  .dataContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0;
+
+    .left {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      p {
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 7px;
+      }
+
+      .buttons {
+           display: flex;
+           gap: 5px;
+
+           button {
+              margin-left: 7px;
+               border: none;
+               cursor: pointer;
+               font-size: 20px;
+               padding: 3px 5px;
+               border-radius: 5px;
+               font-weight: bold;
+               color: #fff;
+               background-color: #494949;
+           }
+           button:hover {
+            background-color: #838383;
+          }
+      }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        div {
+            background-color: #FB3939;
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    }
+  }
+}
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  border-top-color: #888;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
